@@ -8,18 +8,20 @@ function App() {
   // this will be used for the Dark Mode Toggle feature
   // const appClass = false ? "App dark" : "App light"
 
-  let [isOn, setIsOn] = useState("App dark")
-  const appClass = isOn ? "App light" : "App dark"
+  let [isDarkMode, setIsDarkMode] = useState(true)
+  console.log(isDarkMode)
+  const appClass = isDarkMode ? "App dark" : "App light"
+  console.log(appClass)
 
   function handleClick() {
-    setIsOn((isOn) => !isOn)
+    setIsDarkMode((isDarkMode) => !isDarkMode)
   }
 
   return (
     <div className={appClass}>
       <header>
         <h2>Shopster</h2>
-        <button onClick={handleClick}>{isOn ? "Light Mode": "Dark Mode" }</button>
+        <button onClick={handleClick}>{isDarkMode ? "Dark Mode": "Light Mode" }</button>
       </header>
       <ShoppingList items={itemData} />
     </div>
